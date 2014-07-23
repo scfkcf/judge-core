@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 2.8.7)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
 
-enable_testing()
+ENABLE_TESTING()
 
+ADD_SUBDIRECTORY("compilers" "tests")
