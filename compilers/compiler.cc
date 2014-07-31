@@ -2,17 +2,17 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #else
-#ifdef HAVE_SYS_UNISTD_H
 #include <sys/unistd.h>
-#endif // HAVE_SYS_UNISTD_H
 #endif // HAVE_UNISTD_H
-#include <ctype.h>
 #include <sys/wait.h>
+#ifdef HAVE_STDLIB_H
 #include <stdlib.h>
+#else
+#include <cstdlib>
+#endif // HAVE_STDLIB_H
 #include "compiler.h"
 
-int compile(const char* source_file_path, char* const* argv,
-    int (*compiler_return_mapping_function)(size_t)) {
+int compile(char* const* argv, int (*compiler_return_mapping_function)(size_t)) {
   pid_t pid = fork();
   if (pid < 0) {
     return COMPILE_RESULT_FORK_ERROR;

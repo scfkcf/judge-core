@@ -1,0 +1,4 @@
+#cmakedefine HAVE_STDIO_H
+#cmakedefine HAVE_C_STDIO
+#cmakedefine HAVE_ASSERT_H
+#cmakedefine HAVE_C_ASSERT

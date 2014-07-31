@@ -1,0 +1,19 @@
+#cmakedefine HAVE_UNISTD_H
+#cmakedefine HAVE_SYS_UNISTD_H
+
+#cmakedefine HAVE_CTYPE_H
+#cmakedefine HAVE_SYS_WAIT_H
+
+#cmakedefine HAVE_STDLIB_H
+#cmakedefine HAVE_C_STDLIB
+
+#cmakedefine HAVE_STDIO_H
+#cmakedefine HAVE_C_STDIO
+
+#cmakedefine HAVE_ASSERT_H
+#cmakedefine HAVE_C_ASSERT
+
+#define OS_TYPE_LINUX 0
+#define OS_TYPE_MAC_OS 1
+
+#define OS_TYPE ${OperatingSystem}

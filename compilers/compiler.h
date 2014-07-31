@@ -1,6 +1,8 @@
 #ifndef __COMPILER_H__
 #define __COMPILER_H__
 
+#include <ctype.h>
+
 #define COMPILE_RESULT_PASS 0
 #define COMPILE_RESULT_FORK_ERROR -1
 #define COMPILE_RESULT_COMPILE_ERROR 1
