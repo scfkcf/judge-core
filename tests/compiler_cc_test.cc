@@ -9,6 +9,11 @@
 #else
 #include <cassert>
 #endif // HAVE_C_ASSERT
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#else
+#include <cstdlib>
+#endif // HAVE_STDLIB_H
 
 int main(int argc, char **argv) {
   assert(argc == 3);

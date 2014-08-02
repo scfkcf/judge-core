@@ -2,6 +2,11 @@
 #define __COMPILER_H__
 
 #include <ctype.h>
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#else
+#include <cstdlib>
+#endif // HAVE_STDLIB_H
 
 #define COMPILE_RESULT_PASS 0
 #define COMPILE_RESULT_FORK_ERROR -1
