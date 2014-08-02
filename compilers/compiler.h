@@ -2,7 +2,6 @@
 #define __COMPILER_H__
 
 #include <ctype.h>
-
 #ifdef HAVE_STDLIB_H
 #include <stdlib.h>
 #else
