@@ -64,11 +64,10 @@ ADD_SUBDIRECTORY("tests")
 # tests for C++ compiler
 MACRO(add_compiler_cc_test source_file result)
     ADD_TEST(
-        NAME add_compiler_cc_test_${source_file}
+        NAME add_compiler_cc_test[${source_file}]
         COMMAND compiler_cc_test ${source_file} ${result}
     )
 ENDMACRO(add_compiler_cc_test)
 
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/test_pass.cc ${CMAKE_CURRENT_BINARY_DIR}/test_pass.cc)
-add_compiler_cc_test("test_pass.cc" 0)
+add_compiler_cc_test(${CMAKE_SOURCE_DIR}/test_resources/test_pass.cc 0)
 
