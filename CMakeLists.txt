@@ -70,4 +70,5 @@ MACRO(add_compiler_cc_test source_file result)
 ENDMACRO(add_compiler_cc_test)
 
 add_compiler_cc_test(${CMAKE_SOURCE_DIR}/test_resources/test_pass.cc 0)
+add_compiler_cc_test(${CMAKE_SOURCE_DIR}/test_resources/test_compile_error.cc 1)
 
