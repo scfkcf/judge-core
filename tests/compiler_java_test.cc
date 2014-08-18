@@ -1,4 +1,4 @@
-#include "compilers/compiler_cc.h"
+#include "compilers/compiler_java.h"
 #ifdef HAVE_STDIO_H
 #include <stdio.h>
 #else
@@ -18,7 +18,7 @@
 int main(int argc, char **argv) {
   assert(argc == 3);
   int expected_result = atoi(argv[2]);
-  int compile_result = compile_cc(argv[1]);
+  int compile_result = compile_java(argv[1]);
   printf("%d\n", compile_result);
   assert(expected_result == compile_result);
   return 0;
