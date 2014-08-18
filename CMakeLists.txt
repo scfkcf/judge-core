@@ -62,6 +62,17 @@ ADD_SUBDIRECTORY("compilers")
 ADD_SUBDIRECTORY("tests")
 
 # tests for C++ compiler
+MACRO(add_compiler_c_test source_file result)
+    ADD_TEST(
+        NAME add_compiler_c_test[${source_file}]
+        COMMAND compiler_c_test ${source_file} ${result}
+    )
+ENDMACRO(add_compiler_c_test)
+
+add_compiler_c_test(${CMAKE_SOURCE_DIR}/test_resources/test_pass.c 0)
+add_compiler_c_test(${CMAKE_SOURCE_DIR}/test_resources/test_compile_error.c 1)
+
+# tests for C++ compiler
 MACRO(add_compiler_cc_test source_file result)
     ADD_TEST(
         NAME add_compiler_cc_test[${source_file}]

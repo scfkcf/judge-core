@@ -1,4 +1,6 @@
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR})
+ADD_EXECUTABLE(compiler_c_test "compiler_c_test.cc")
 ADD_EXECUTABLE(compiler_cc_test "compiler_cc_test.cc")
+TARGET_LINK_LIBRARIES(compiler_c_test compilers)
 TARGET_LINK_LIBRARIES(compiler_cc_test compilers)
