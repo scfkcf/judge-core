@@ -61,7 +61,7 @@ ADD_DEFINITIONS(-std=gnu++0x)
 ADD_SUBDIRECTORY("compilers")
 ADD_SUBDIRECTORY("tests")
 
-# tests for C++ compiler
+# tests for C compiler
 MACRO(add_compiler_c_test source_file result)
     ADD_TEST(
         NAME add_compiler_c_test[${source_file}]
@@ -83,3 +83,13 @@ ENDMACRO(add_compiler_cc_test)
 add_compiler_cc_test(${CMAKE_SOURCE_DIR}/test_resources/test_pass.cc 0)
 add_compiler_cc_test(${CMAKE_SOURCE_DIR}/test_resources/test_compile_error.cc 1)
 
+# tests for Java compiler
+MACRO(add_compiler_java_test source_file result)
+    ADD_TEST(
+        NAME add_compiler_java_test[${source_file}]
+        COMMAND compiler_java_test ${source_file} ${result}
+    )
+ENDMACRO(add_compiler_java_test)
+
+add_compiler_java_test(${CMAKE_SOURCE_DIR}/test_resources/test_pass.java 0)
+add_compiler_java_test(${CMAKE_SOURCE_DIR}/test_resources/test_compile_error.java 1)
