@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
 
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
-SET(VERSION "0.0.20140801")
+SET(VERSION "0.0.20140823")
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
@@ -21,6 +21,11 @@ CHECK_INCLUDE_FILES("unistd.h" HAVE_UNISTD_H)
 CHECK_INCLUDE_FILES("sys/unistd.h" HAVE_SYS_UNISTD_H)
 IF ((NOT HAVE_UNISTD_H) AND (NOT HAVE_SYS_UNISTD_H))
     MESSAGE(FATAL_ERROR "system header file unistd.h and sys/unistd.h not found.")
+ENDIF()
+
+CHECK_INCLUDE_FILES("string.h" HAVE_STRING_H)
+IF (NOT HAVE_STRING_H)
+    MESSAGE(FATAL_ERROR "system header file string.h not found.")
 ENDIF()
 
 CHECK_INCLUDE_FILES("ctype.h" HAVE_CTYPE_H)
@@ -60,6 +65,7 @@ ENABLE_TESTING()
 ADD_DEFINITIONS(-std=gnu++0x)
 ADD_SUBDIRECTORY("compilers")
 ADD_SUBDIRECTORY("tests")
+ADD_EXECUTABLE(judge_core "main.cc")
 
 # tests for C compiler
 MACRO(add_compiler_c_test source_file result)
