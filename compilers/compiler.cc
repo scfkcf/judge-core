@@ -10,6 +10,11 @@
 #else
 #include <cstdlib>
 #endif // HAVE_STDLIB_H
+#ifdef HAVE_STDIO_H
+#include <stdio.h>
+#else
+#include <cstdio>
+#endif // HAVE_STDIO_H
 #include "compiler.h"
 
 int compile(char* const* argv, int (*compiler_return_mapping_function)(size_t)) {
@@ -17,6 +22,7 @@ int compile(char* const* argv, int (*compiler_return_mapping_function)(size_t)) 
   if (pid < 0) {
     return COMPILE_RESULT_FORK_ERROR;
   } else if (pid == 0) {
+    freopen("compiler_stderr.log", "w", stderr);
     execvp(argv[0], argv);
   } else {
     int status;
