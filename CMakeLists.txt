@@ -11,9 +11,9 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     SET(OperatingSystem 0)
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     SET(OperatingSystem 1)
-else(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+ELSE(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     MESSAGE(FATAL_ERROR "judge core is only supported on mac os or linux platform.")
-ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+ENDIF()
 
 # include files check start
 
