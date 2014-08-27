@@ -34,6 +34,12 @@ IF(NOT HAVE_STRING_H)
     MESSAGE(FATAL_ERROR "system header file string.h not found.")
 ENDIF()
 
+CHECK_INCLUDE_FILES("types.h" HAVE_TYPES_H)
+CHECK_INCLUDE_FILES("sys/types.h" HAVE_SYS_TYPES_H)
+IF((NOT HAVE_TYPES_H) AND (NOT HAVE_SYS_TYPES_H))
+    MESSAGE(FATAL_ERROR "system header file types.h and sys/types.h not found.")
+ENDIF()
+
 CHECK_INCLUDE_FILES("ctype.h" HAVE_CTYPE_H)
 IF(NOT HAVE_CTYPE_H)
     MESSAGE(FATAL_ERROR "system header file ctype.h not found.")

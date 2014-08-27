@@ -15,6 +15,11 @@
 #else
 #include <cstdio>
 #endif // HAVE_STDIO_H
+#ifdef HAVE_TYPES_H
+#include <types.h>
+#else
+#include <sys/types.h>
+#endif // HAVE_TYPES_H
 #include "compiler.h"
 
 int compile(char* const* argv, int (*compiler_return_mapping_function)(size_t)) {
