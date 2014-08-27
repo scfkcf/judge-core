@@ -1,4 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
+PROJECT(judge_core C)
 
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 INCLUDE(CMakeVersion.cmake)
@@ -39,21 +40,18 @@ IF (NOT HAVE_SYS_WAIT_H)
 ENDIF()
 
 CHECK_INCLUDE_FILES("stdlib.h" HAVE_STDLIB_H)
-CHECK_INCLUDE_FILES("cstdlib" HAVE_C_STDLIB)
-IF ((NOT HAVE_STDLIB_H) AND (NOT HAVE_C_STDLIB))
-    MESSAGE(FATAL_ERROR "system header file stdlib.h and cstdlib not found.")
+IF (NOT HAVE_STDLIB_H)
+    MESSAGE(FATAL_ERROR "system header file stdlib.h not found.")
 ENDIF()
 
 CHECK_INCLUDE_FILES("stdio.h" HAVE_STDIO_H)
-CHECK_INCLUDE_FILES("cstdio" HAVE_C_STDIO)
-IF ((NOT HAVE_STDIO_H) AND (NOT HAVE_C_STDIO))
-    MESSAGE(FATAL_ERROR "system header file stdio.h and cstdio not found.")
+IF (NOT HAVE_STDIO_H)
+    MESSAGE(FATAL_ERROR "system header file stdio.h not found.")
 ENDIF()
 
 CHECK_INCLUDE_FILES("assert.h" HAVE_ASSERT_H)
-CHECK_INCLUDE_FILES("cassert" HAVE_C_ASSERT)
-IF ((NOT HAVE_ASSERT_H) AND (NOT HAVE_C_ASSERT))
-    MESSAGE(FATAL_ERROR "system header file assert.h and cassert not found.")
+IF (NOT HAVE_ASSERT_H)
+    MESSAGE(FATAL_ERROR "system header file assert.h not found.")
 ENDIF()
 
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
@@ -62,10 +60,9 @@ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DI
 
 ENABLE_TESTING()
 
-ADD_DEFINITIONS(-std=gnu++0x)
 ADD_SUBDIRECTORY("compilers")
 ADD_SUBDIRECTORY("tests")
-ADD_EXECUTABLE(judge_core "main.cc")
+ADD_EXECUTABLE(judge_core "main.c")
 
 # tests for C compiler
 MACRO(add_compiler_c_test source_file result)
