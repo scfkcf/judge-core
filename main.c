@@ -4,7 +4,10 @@
 
 #define PARSE_RESULT_RETUENED 0
 #define PARSE_RESULT_EXITED 1
-#define USAGE_MESSAGE "usage: %s [-h] [-v]\n\ncompile and run customized code in sandbox and verify the problem result with standard output.\n\noptional arguments:\n  -h, --help\t\tshow this help message and exit\n  -v, --version\t\tprint the version number of judge_core and exit\n"
+#define USAGE_MESSAGE "usage: %s [-h] [-v]\n\ncompile and run customized code in \
+sandbox and verify the problem result with standard output.\n\noptional \
+arguments:\n  -h, --help\t\tshow this help message and exit\n  -v, --version\t\tprint \
+the version number of judge_core and exit\n"
 
 int parse_command_line_flags(int* argc, char*** argv) {
   for (int i = 1; i < *argc; i++) {
