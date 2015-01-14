@@ -20,12 +20,7 @@ int gcc_exit_code_mapping(size_t exit_code) {
 }
 
 int compile_c(char* const source_file_path) {
-#if ((OS_TYPE_LINUX) == (OS_TYPE))
   char* const parameters[] =
       {"gcc", "-static", "-w", "-O2", "-lm", "-DONLINE_JUDGE", source_file_path, NULL};
-#else
-  char* const parameters[] =
-      {"gcc", "-w", "-O2", "-lm", "-DONLINE_JUDGE", source_file_path, NULL};
-#endif
   return compile(parameters, gcc_exit_code_mapping);
 }

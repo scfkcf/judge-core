@@ -9,10 +9,8 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 # runtime environment
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     SET(OperatingSystem 0)
-ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    SET(OperatingSystem 1)
 ELSE(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    MESSAGE(FATAL_ERROR "judge core is only supported on mac os or linux platform.")
+    MESSAGE(FATAL_ERROR "judge core is only supported on linux platform.")
 ENDIF()
 
 # set project up to use C99 dialect

@@ -20,12 +20,7 @@ int gpp_exit_code_mapping(size_t exit_code) {
 }
 
 int compile_cc(char* const source_file_path) {
-#if ((OS_TYPE_LINUX) == (OS_TYPE))
   char* const parameters[] =
       {"g++", "-static", "-w", "-O2", "-lm", "-DONLINE_JUDGE", source_file_path, NULL};
-#else
-  char* const parameters[] =
-      {"g++", "-w", "-O2", "-lm", "-DONLINE_JUDGE", source_file_path, NULL};
-#endif
   return compile(parameters, gpp_exit_code_mapping);
 }

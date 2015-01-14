@@ -27,3 +27,7 @@
 /.cproject
 /.project
 
+# sandbox
+/.vagrant/
+/*.box
+
