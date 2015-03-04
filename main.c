@@ -15,10 +15,10 @@ int parse_command_line_flags(int* argc, char*** argv) {
       continue;
     }
     if (strcmp((*argv)[i], "--help") == 0 || strcmp((*argv)[i], "-h") == 0) {
-      fprintf(stderr, USAGE_MESSAGE, (*argv)[0]);
+      fprintf(stderr, USAGE_MESSAGE, PROJECT_NAME);
       return PARSE_RESULT_EXITED;
     } else if (strcmp((*argv)[i], "--version") == 0 || strcmp((*argv)[i], "-v") == 0) {
-      printf("%s %s\n", (*argv)[0], VERSION);
+      printf("%s %s\n", PROJECT_NAME, VERSION);
       return PARSE_RESULT_EXITED;
     }
   }
