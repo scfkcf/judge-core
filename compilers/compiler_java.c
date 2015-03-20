@@ -20,8 +20,8 @@ int javac_exit_code_mapping(size_t exit_code) {
   }
 }
 
-int compile_java(char* const source_file_path) {
-  char* const parameters[] = 
-    {"javac", source_file_path, "-d", ".", NULL};
-  return compile(parameters, javac_exit_code_mapping);
+int compile_java(char* const source_file_path, const char* param) {
+  char wrapped_param[BUFF_SIZE];
+  sprintf(wrapped_param, "javac %s %s", source_file_path, param);
+  return compile(wrapped_param, javac_exit_code_mapping);
 }

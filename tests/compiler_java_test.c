@@ -6,7 +6,7 @@
 int main(int argc, char **argv) {
   assert(argc == 3);
   int expected_result = atoi(argv[2]);
-  int compile_result = compile_java(argv[1]);
+  int compile_result = compile_java(argv[1], "-d .");
   assert(expected_result == compile_result);
   return 0;
 }

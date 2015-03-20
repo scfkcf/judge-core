@@ -6,6 +6,7 @@
 #else
 #include <cstdlib>
 #endif // HAVE_STDLIB_H
+#include <stdio.h>
 
 #define GPP_COMPILE_ERROR_EXIT_CODE 1
 
@@ -19,8 +20,8 @@ int gpp_exit_code_mapping(size_t exit_code) {
   }
 }
 
-int compile_cc(char* const source_file_path) {
-  char* const parameters[] =
-      {"g++", "-static", "-w", "-O2", "-lm", "-DONLINE_JUDGE", source_file_path, NULL};
-  return compile(parameters, gpp_exit_code_mapping);
+int compile_cc(char* const source_file_path, const char* param) {
+  char wrapped_param[BUFF_SIZE];
+  sprintf(wrapped_param, "g++ %s %s", param, source_file_path);
+  return compile(wrapped_param, gpp_exit_code_mapping);
 }

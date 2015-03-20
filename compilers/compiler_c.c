@@ -19,8 +19,8 @@ int gcc_exit_code_mapping(size_t exit_code) {
   }
 }
 
-int compile_c(char* const source_file_path) {
-  char* const parameters[] =
-      {"gcc", "-static", "-w", "-O2", "-lm", "-DONLINE_JUDGE", source_file_path, NULL};
-  return compile(parameters, gcc_exit_code_mapping);
+int compile_c(char* const source_file_path, const char* param) {
+  char wrapped_param[BUFF_SIZE];
+  sprintf(wrapped_param, "gcc %s %s", param, source_file_path);
+  return compile(wrapped_param, gcc_exit_code_mapping);
 }

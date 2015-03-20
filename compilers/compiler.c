@@ -20,15 +20,26 @@
 #else
 #include <sys/types.h>
 #endif // HAVE_TYPES_H
+#include <string.h>
 #include "compiler.h"
 
-int compile(char* const* argv, int (*compiler_return_mapping_function)(size_t)) {
+char* parsed[BUFF_SIZE];
+
+int compile(char* param, int (*compiler_return_mapping_function)(size_t)) {
+  /* parse param */
+  int index = 1;
+  parsed[0] = strtok(param, " ");
+  while (parsed[index] = strtok(NULL, " ")) {
+    index++;
+  }
+  parsed[index] = NULL;
+  
   pid_t pid = fork();
   if (pid < 0) {
     return COMPILE_RESULT_FORK_ERROR;
   } else if (pid == 0) {
     freopen("compiler_stderr.log", "w", stderr);
-    execvp(argv[0], argv);
+    execvp(parsed[0], &parsed);
   } else {
     int status;
     pid_t child_pid = waitpid(pid, &status, WUNTRACED);

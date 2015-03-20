@@ -16,6 +16,8 @@
 #define COMPILE_RESULT_COMPILER_STOPPED 4
 #define COMPILE_RESULT_COMPILER_UNKNOWN_STATUS 5
 
-int compile(char* const* argv, int (*compiler_return_mapping_function)(size_t));
+#define BUFF_SIZE 100
+
+int compile(char* params, int (*compiler_return_mapping_function)(size_t));
 
 #endif // __COMPILER_H__
